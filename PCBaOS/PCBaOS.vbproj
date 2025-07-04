@@ -1,0 +1,967 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1935D9F9-E1C2-4E0D-BE24-F2FFF91E73DD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>PCBaOS.My.MyApplication</StartupObject>
+    <RootNamespace>PCBaOS</RootNamespace>
+    <AssemblyName>PCBaOS</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\User\Desktop\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>PCBaOS</ProductName>
+    <PublisherName>PCBaOS Dev</PublisherName>
+    <SuiteName>PCBaOS</SuiteName>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>PCBaOS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>PCBaOS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>PROGM001.ICO</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnalogClocks.Designer.vb">
+      <DependentUpon>AnalogClocks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AnalogClocks.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="ApplicationFolder.Designer.vb">
+      <DependentUpon>ApplicationFolder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationFolder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationVariables.Designer.vb">
+      <DependentUpon>ApplicationVariables.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationVariables.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AudioPlayer.Designer.vb">
+      <DependentUpon>AudioPlayer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AudioPlayer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BootLoad.Designer.vb">
+      <DependentUpon>BootLoad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BootLoad.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Browser.Designer.vb">
+      <DependentUpon>Browser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Browser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calendar.Designer.vb">
+      <DependentUpon>Calendar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Calendar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChatPer.Designer.vb">
+      <DependentUpon>ChatPer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ChatPer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChatPerServer.Designer.vb">
+      <DependentUpon>ChatPerServer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ChatPerServer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clocks.Designer.vb">
+      <DependentUpon>Clocks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clocks.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="commandepic.Designer.vb">
+      <DependentUpon>commandepic.vb</DependentUpon>
+    </Compile>
+    <Compile Include="commandepic.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Converter.Designer.vb">
+      <DependentUpon>Converter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Converter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrashScreen.Designer.vb">
+      <DependentUpon>CrashScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CrashScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomApplications.Designer.vb">
+      <DependentUpon>CustomApplications.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CustomApplications.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Desktop.Designer.vb">
+      <DependentUpon>Desktop.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Desktop.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="calc.designer.vb">
+      <DependentUpon>calc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="calc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileLoadDialog.Designer.vb">
+      <DependentUpon>FileLoadDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FileLoadDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileManager.Designer.vb">
+      <DependentUpon>FileManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FileManager.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileSaveDialog.Designer.vb">
+      <DependentUpon>FileSaveDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FileSaveDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoodExpert.Designer.vb">
+      <DependentUpon>FoodExpert.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FoodExpert.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GeographyGame.Designer.vb">
+      <DependentUpon>GeographyGame.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GeographyGame.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImgView.Designer.vb">
+      <DependentUpon>ImgView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ImgView.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JokeWeb.Designer.vb">
+      <DependentUpon>JokeWeb.vb</DependentUpon>
+    </Compile>
+    <Compile Include="JokeWeb.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListTest.Designer.vb">
+      <DependentUpon>ListTest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ListTest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogInLog.Designer.vb">
+      <DependentUpon>LogInLog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LogInLog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Matrix.Designer.vb">
+      <DependentUpon>Matrix.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Matrix.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MusicComposer.Designer.vb">
+      <DependentUpon>MusicComposer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MusicComposer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mysteriousegg.Designer.vb">
+      <DependentUpon>mysteriousegg.vb</DependentUpon>
+    </Compile>
+    <Compile Include="mysteriousegg.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notes.Designer.vb">
+      <DependentUpon>Notes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Notes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notifications.Designer.vb">
+      <DependentUpon>Notifications.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Notifications.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RenameColumnForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resources\DemoFractalMandelbrot.Designer.vb">
+      <DependentUpon>DemoFractalMandelbrot.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\DemoFractalMandelbrot.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search.Designer.vb">
+      <DependentUpon>Search.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Search.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShutdownLog.Designer.vb">
+      <DependentUpon>ShutdownLog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ShutdownLog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskMgr.Designer.vb">
+      <DependentUpon>TaskMgr.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TaskMgr.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Paint.designer.vb">
+      <DependentUpon>Paint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Paint.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Password.Designer.vb">
+      <DependentUpon>Password.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Password.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PCApplicationStore.Designer.vb">
+      <DependentUpon>PCApplicationStore.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PCApplicationStore.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PingPong.Designer.vb">
+      <DependentUpon>PingPong.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PingPong.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PowerTools.Designer.vb">
+      <DependentUpon>PowerTools.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PowerTools.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuickAccess.Designer.vb">
+      <DependentUpon>QuickAccess.vb</DependentUpon>
+    </Compile>
+    <Compile Include="QuickAccess.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings1.vb" />
+    <Compile Include="SnakeGame.Designer.vb">
+      <DependentUpon>SnakeGame.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SnakeGame.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SuperText.Designer.vb">
+      <DependentUpon>SuperText.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SuperText.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="table.Designer.vb">
+      <DependentUpon>table.vb</DependentUpon>
+    </Compile>
+    <Compile Include="table.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="teess.Designer.vb">
+      <DependentUpon>teess.vb</DependentUpon>
+    </Compile>
+    <Compile Include="teess.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TetrisForm.Designer.vb">
+      <DependentUpon>TetrisForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TetrisForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Textpad.Designer.vb">
+      <DependentUpon>Textpad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Textpad.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TicTacToe.Designer.vb">
+      <DependentUpon>TicTacToe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TicTacToe.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Toggle.Designer.vb">
+      <DependentUpon>Toggle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Toggle.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="version.Designer.vb">
+      <DependentUpon>version.vb</DependentUpon>
+    </Compile>
+    <Compile Include="version.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkSpace.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkSpace.Designer.vb">
+      <DependentUpon>WorkSpace.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="settings.Designer.vb">
+      <DependentUpon>settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="settings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkBar.Designer.vb">
+      <DependentUpon>WorkBar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WorkBar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkName.Designer.vb">
+      <DependentUpon>WorkName.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WorkName.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AnalogClocks.resx">
+      <DependentUpon>AnalogClocks.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationFolder.resx">
+      <DependentUpon>ApplicationFolder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationVariables.resx">
+      <DependentUpon>ApplicationVariables.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AudioPlayer.resx">
+      <DependentUpon>AudioPlayer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BootLoad.resx">
+      <DependentUpon>BootLoad.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Browser.resx">
+      <DependentUpon>Browser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calendar.resx">
+      <DependentUpon>Calendar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChatPer.resx">
+      <DependentUpon>ChatPer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChatPerServer.resx">
+      <DependentUpon>ChatPerServer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clocks.resx">
+      <DependentUpon>Clocks.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="commandepic.resx">
+      <DependentUpon>commandepic.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Converter.resx">
+      <DependentUpon>Converter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrashScreen.resx">
+      <DependentUpon>CrashScreen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomApplications.resx">
+      <DependentUpon>CustomApplications.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Desktop.resx">
+      <DependentUpon>Desktop.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="calc.resx">
+      <DependentUpon>calc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileLoadDialog.resx">
+      <DependentUpon>FileLoadDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileManager.resx">
+      <DependentUpon>FileManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileSaveDialog.resx">
+      <DependentUpon>FileSaveDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoodExpert.resx">
+      <DependentUpon>FoodExpert.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GeographyGame.resx">
+      <DependentUpon>GeographyGame.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImgView.resx">
+      <DependentUpon>ImgView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JokeWeb.resx">
+      <DependentUpon>JokeWeb.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListTest.resx">
+      <DependentUpon>ListTest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogInLog.resx">
+      <DependentUpon>LogInLog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Matrix.resx">
+      <DependentUpon>Matrix.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MusicComposer.resx">
+      <DependentUpon>MusicComposer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mysteriousegg.resx">
+      <DependentUpon>mysteriousegg.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notes.resx">
+      <DependentUpon>Notes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notifications.resx">
+      <DependentUpon>Notifications.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DemoFractalMandelbrot.resx">
+      <DependentUpon>DemoFractalMandelbrot.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search.resx">
+      <DependentUpon>Search.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShutdownLog.resx">
+      <DependentUpon>ShutdownLog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskMgr.resx">
+      <DependentUpon>TaskMgr.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Paint.resx">
+      <DependentUpon>Paint.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Password.resx">
+      <DependentUpon>Password.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PCApplicationStore.resx">
+      <DependentUpon>PCApplicationStore.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PingPong.resx">
+      <DependentUpon>PingPong.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PowerTools.resx">
+      <DependentUpon>PowerTools.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuickAccess.resx">
+      <DependentUpon>QuickAccess.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SnakeGame.resx">
+      <DependentUpon>SnakeGame.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SuperText.resx">
+      <DependentUpon>SuperText.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="table.resx">
+      <DependentUpon>table.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="teess.resx">
+      <DependentUpon>teess.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TetrisForm.resx">
+      <DependentUpon>TetrisForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Textpad.resx">
+      <DependentUpon>Textpad.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TicTacToe.resx">
+      <DependentUpon>TicTacToe.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Toggle.resx">
+      <DependentUpon>Toggle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="version.resx">
+      <DependentUpon>version.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkSpace.en.resx">
+      <DependentUpon>WorkSpace.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkSpace.resx">
+      <DependentUpon>WorkSpace.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="settings.resx">
+      <DependentUpon>settings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkBar.resx">
+      <DependentUpon>WorkBar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkName.resx">
+      <DependentUpon>WorkName.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkSpace.ru.resx">
+      <DependentUpon>WorkSpace.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calcapp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PROGM017.ICO" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SCHDP001.ICO" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WINTU004.ICO" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PROGM004.ICO" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PROGM029.ICO" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NOTEP001.ICO" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kermit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CONTR001.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MORIC009.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MORIC095.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\three.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PROGM018.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\none.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PROGM001.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PROGM001.ICO" />
+    <None Include="Resources\filemanager.png" />
+    <None Include="Resources\key.ico" />
+    <None Include="Resources\logoff.ico" />
+    <None Include="Resources\grab.cur" />
+    <None Include="Resources\shuffleno.png" />
+    <None Include="Resources\shuffle.png" />
+    <None Include="Resources\20276_line_16x16.png" />
+    <None Include="Resources\LINE.png" />
+    <None Include="Resources\sysclock.png" />
+    <None Include="Resources\10206_ruler_16x16.png" />
+    <None Include="Resources\8067_undo_16x16.png" />
+    <None Include="Resources\11481_refresh_16x16.png" />
+    <None Include="Resources\3986_image_16x16.png" />
+    <None Include="Resources\egg10.png" />
+    <None Include="Resources\egg9.png" />
+    <None Include="Resources\egg8.png" />
+    <None Include="Resources\egg7.png" />
+    <None Include="Resources\egg6.png" />
+    <None Include="Resources\egg5.png" />
+    <None Include="Resources\egg4.png" />
+    <None Include="Resources\egg3.png" />
+    <None Include="Resources\egg2.png" />
+    <None Include="Resources\egg1.png" />
+    <None Include="Resources\arrows.png" />
+    <None Include="Resources\backinminimized.png" />
+    <None Include="Resources\controlleft.png" />
+    <None Include="Resources\controlright.png" />
+    <None Include="Resources\audioright.png" />
+    <None Include="Resources\backno.png" />
+    <None Include="Resources\back1.png" />
+    <None Include="Resources\repeat.png" />
+    <None Include="Resources\backward.png" />
+    <None Include="Resources\pause.png" />
+    <None Include="Resources\right %281%29.png" />
+    <None Include="Resources\arrow.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\interneticon.png" />
+    <None Include="Resources\sysinfo.png" />
+    <None Include="Resources\sysset.png" />
+    <None Include="Resources\systheme.png" />
+    <None Include="Resources\sysuser.png" />
+    <None Include="Resources\pcbaosicon.png" />
+    <None Include="Resources\earth.png" />
+    <None Include="Resources\checkmark.png" />
+    <None Include="Resources\volume50.png" />
+    <None Include="Resources\volume25.png" />
+    <None Include="Resources\windowsopened.png" />
+    <None Include="Resources\bold.png" />
+    <None Include="Resources\italic.png" />
+    <None Include="Resources\underline.png" />
+    <None Include="Resources\strikethrough.png" />
+    <None Include="Resources\musiccomposer_header.png" />
+    <None Include="Resources\music.png" />
+    <None Include="Resources\matrix_header.png" />
+    <None Include="Resources\code2.png" />
+    <None Include="Resources\code1.png" />
+    <None Include="Resources\code.png" />
+    <None Include="Resources\foodexpert_header.png" />
+    <None Include="Resources\lock.png" />
+    <None Include="Resources\volume100.png" />
+    <None Include="Resources\volume0.png" />
+    <None Include="Resources\system.png" />
+    <None Include="Resources\dot1.png" />
+    <None Include="Resources\dot.png" />
+    <None Include="Resources\rightrotate.png" />
+    <None Include="Resources\leftrotate.png" />
+    <None Include="Resources\windows.png" />
+    <None Include="Resources\compare.png" />
+    <None Include="Resources\coins.png" />
+    <None Include="Resources\tictactoe_game_header.png" />
+    <None Include="Resources\snake_header.png" />
+    <None Include="Resources\pingpong_header.png" />
+    <None Include="Resources\joke_web_header.png" />
+    <None Include="Resources\geographic_game_header.png" />
+    <None Include="Resources\user1.png" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\desktop.png" />
+    <None Include="Resources\findnext.png" />
+    <None Include="Resources\text.png" />
+    <None Include="Resources\find.png" />
+    <None Include="Resources\font.png" />
+    <None Include="Resources\pingbig.png" />
+    <None Include="Resources\ping.png" />
+    <None Include="Resources\console.png" />
+    <None Include="Resources\console %281%29.png" />
+    <None Include="Resources\draw %281%292.png" />
+    <None Include="Resources\draw %281%291.png" />
+    <None Include="Resources\draw %281%29.png" />
+    <None Include="Resources\rectangle1.png" />
+    <None Include="Resources\draw.png" />
+    <None Include="Resources\brush1.png" />
+    <None Include="Resources\cookie.png" />
+    <None Include="Resources\snake.png" />
+    <None Include="Resources\startup.wav" />
+    <None Include="Resources\msg.wav" />
+    <None Include="Resources\jokewebhomepage.png" />
+    <None Include="Resources\box.png" />
+    <None Include="Resources\geographygame.png" />
+    <None Include="Resources\appstore.png" />
+    <None Include="Resources\mp.png" />
+    <None Include="Resources\musicplayer.png" />
+    <None Include="Resources\pauseplay.png" />
+    <None Include="Resources\stopplay.png" />
+    <None Include="Resources\play.png" />
+    <None Include="Resources\color.png" />
+    <None Include="Resources\time.png" />
+    <None Include="Resources\selectall.png" />
+    <None Include="Resources\paste.png" />
+    <None Include="Resources\copy.png" />
+    <None Include="Resources\cut.png" />
+    <None Include="Resources\redo.png" />
+    <None Include="Resources\undo.png" />
+    <None Include="Resources\printing.png" />
+    <None Include="Resources\print.png" />
+    <None Include="Resources\saveas.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\minus.png" />
+    <None Include="Resources\plus.png" />
+    <None Include="Resources\info16.png" />
+    <None Include="Resources\info1.png" />
+    <None Include="Resources\info.png" />
+    <None Include="Resources\newdoc.png" />
+    <None Include="Resources\eraser.png" />
+    <None Include="Resources\rectangle.png" />
+    <None Include="Resources\circle2.png" />
+    <None Include="Resources\circle1.png" />
+    <None Include="Resources\circle.png" />
+    <None Include="Resources\brush.png" />
+    <None Include="Resources\quickaccess1.png" />
+    <None Include="Resources\quickaccess.png" />
+    <None Include="Resources\clockwidget1.png" />
+    <None Include="Resources\clockwidget.png" />
+    <None Include="Resources\open.png" />
+    <None Include="Resources\height.png" />
+    <None Include="Resources\width.png" />
+    <None Include="Resources\newnote.png" />
+    <None Include="Resources\minimize.png" />
+    <None Include="Resources\maximize.png" />
+    <None Include="Resources\close1.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\refresh1.png" />
+    <None Include="Resources\right.png" />
+    <None Include="Resources\left.png" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\textpad.png" />
+    <None Include="Resources\settings2.png" />
+    <None Include="Resources\settings1.png" />
+    <None Include="Resources\table1.png" />
+    <None Include="Resources\powertools.png" />
+    <None Include="Resources\browser1.png" />
+    <None Include="Resources\browser.png" />
+    <None Include="Resources\notes.png" />
+    <None Include="Resources\imgview.png" />
+    <None Include="Resources\paint.png" />
+    <None Include="Resources\calendar.png" />
+    <None Include="Resources\calc.png" />
+    <None Include="Resources\shutdown.png" />
+    <None Include="Resources\restart.png" />
+    <None Include="Resources\logoff.png" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\cmd.png" />
+    <None Include="Resources\about.png" />
+    <None Include="Resources\WINTU007.PNG" />
+    <None Include="Resources\NOTEP0011.PNG" />
+    <None Include="Resources\PROGM029.PNG" />
+    <None Include="Resources\PROGM017.PNG" />
+    <None Include="Resources\SCHDP001.PNG" />
+    <None Include="Resources\CALC001.PNG" />
+    <None Include="Resources\PROGM006.PNG" />
+    <None Include="Resources\NOTEP001.PNG" />
+    <None Include="Resources\lines.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWIA">
+      <Guid>{94A0E92D-43C0-494E-AC29-FD45948A5221}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+      <Private>True</Private>
+    </COMReference>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+      <Private>True</Private>
+    </COMReference>
+    <COMReference Include="WIA">
+      <Guid>{94A0E92D-43C0-494E-AC29-FD45948A5221}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

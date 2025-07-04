@@ -1,0 +1,824 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+PCBaOS
+</name>
+</assembly>
+<members>
+<member name="P:PCBaOS.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.about">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.abstract">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.appstore">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.arrow">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.arrows">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.audioright">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.back">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.backinminimized">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.backno">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.backward">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.blur">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.bold">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.box">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.browser">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.brush">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.brush1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.calc">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.calcapp">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.calendar">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.cancel">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.checkmark">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.circle">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.circle1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.circle2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.clockwidget">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.clockwidget1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.close">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.close1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.cmd">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.code">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.code1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.code2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.coins">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.color">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.compare">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.console">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.controlleft">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.controlright">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.cookie">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.copy">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.cut">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.desktop">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.dot">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.dot1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.draw">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.earth">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.egg1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.egg10">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.egg2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.egg3">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.egg4">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.egg5">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.egg6">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.egg7">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.egg8">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.egg9">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.eraser">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.filemanager">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.find">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.findnext">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.font">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.foodexpert_header">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.freeform">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.freelasso">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.freeraom">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.geographic_game_header">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.geographygame">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.grab">
+	<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.height">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.image16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.imgview">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.info">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.info1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.info16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.interneticon">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.italic">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.joke_web_header">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.jokewebhomepage">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.kermit">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.key">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.left">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.leftrotate">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.LINE">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.line16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.lines">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.lion">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.lock">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.logoff">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.matrix_header">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.maximize">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.minimize">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.minus">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.mp">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.msg">
+	<summary>
+  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.music">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.musiccomposer_header">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.musicplayer">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.newdoc">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.newnote">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.none">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.NOTEP0011">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.notes">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.open">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.paint">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.paste">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.pause">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.pauseplay">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.pcbaosicon">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.pica">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.ping">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.pingbig">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.pingpong_header">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.play">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.plus">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.powertools">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.print">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.printing">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.PROGM001">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.quickaccess">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.quickaccess1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.rectangle">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.rectangle1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.redo">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.refresh">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.refresh1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.refresh16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.repeat">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.restart">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.right">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.rightrotate">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.ruler16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.save">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.saveas">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.search">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.selectall">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.settings">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.settings2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.setupheader">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.shuffle">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.shuffleno">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.shutdown">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.snake">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.snake_header">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.startup">
+	<summary>
+  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.stopplay">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.strikethrough">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.sunset">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.sysclock">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.sysinfo">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.sysset">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.system">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.systheme">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.sysuser">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.table">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.text">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.textpad">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.three">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.tictactoe">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.tictactoe_game_header">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.time">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.underline">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.undo">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.undo16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.user">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.user1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.volume0">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.volume100">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.volume25">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.volume50">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.width">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.windows">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.windowsopened">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.WINTU004">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="T:PCBaOS.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:PCBaOS.PCApplicationStore.InitializeAppInfo">
+	<summary>
+ Initialize the application info dictionary with app data
+ </summary>
+</member><member name="M:PCBaOS.PCApplicationStore.UpdateAllButtonStates">
+	<summary>
+ Update all button states based on installed applications
+ </summary>
+</member><member name="M:PCBaOS.PCApplicationStore.UpdateButtonState(System.Windows.Forms.Button,System.Boolean)">
+	<summary>
+ Update a button's appearance based on installation status
+ </summary>
+</member><member name="M:PCBaOS.PCApplicationStore.ToggleAppInstallation(System.String,System.Windows.Forms.Button)">
+	<summary>
+ Generic method to handle app installation status changes
+ </summary>
+</member><member name="M:PCBaOS.PCApplicationStore.ShowAppInfo(System.String,System.Windows.Forms.PictureBox)">
+	<summary>
+ Show app info panel with details for the specified app
+ </summary>
+</member><member name="M:PCBaOS.PCApplicationStore.HideAppInfoPanel">
+	<summary>
+ Hide app info panel and adjust layout
+ </summary>
+</member><member name="M:PCBaOS.PCApplicationStore.ProcessImage">
+	<summary>
+ Process the Windows image animation
+ </summary>
+</member><member name="M:PCBaOS.PCApplicationStore.TimerTick(System.Object,System.EventArgs)">
+	<summary>
+ Timer tick handler for Windows image animation
+ </summary>
+</member><member name="M:PCBaOS.PCApplicationStore.RefreshStorePage">
+	<summary>
+ Refresh all PictureBoxes in the store
+ </summary>
+</member><member name="M:PCBaOS.PCApplicationStore.TextBox1_TextChanged(System.Object,System.EventArgs)">
+	<summary>
+ Search functionality for the store
+ </summary>
+</member><member name="M:PCBaOS.PCApplicationStore.Button2_Click(System.Object,System.EventArgs)">
+	<summary>
+ Placeholder for future implementation
+ </summary>
+</member><member name="M:PCBaOS.WorkSpace.waveOutSetVolume(System.IntPtr,System.UInt32)">
+	<summary>
+ Sets the volume for the wave output device
+ </summary>
+</member><member name="M:PCBaOS.WorkSpace.waveOutGetVolume(System.IntPtr,System.UInt32@)">
+	<summary>
+ Gets the current volume for the wave output device
+ </summary>
+</member><member name="M:PCBaOS.WorkSpace.GetApplicationVolume">
+	<summary>
+ Gets the application volume as a percentage (0-100)
+ </summary>
+</member><member name="M:PCBaOS.WorkSpace.SetApplicationVolume(System.Int32)">
+	<summary>
+ Sets the application volume to a percentage (0-100)
+ </summary>
+</member><member name="M:PCBaOS.WorkSpace.InitializeUserInterface">
+	<summary>
+ Initializes the user interface based on current settings
+ </summary>
+</member><member name="M:PCBaOS.WorkSpace.InitializeStatusStrip">
+	<summary>
+ Initialize the status strip with buttons and handlers
+ </summary>
+</member><member name="M:PCBaOS.WorkSpace.LogSystemStartup">
+	<summary>
+ Logs the system startup in user settings
+ </summary>
+</member><member name="M:PCBaOS.WorkSpace.LogOff">
+	<summary>
+ Prompt user to confirm log off and log off if confirmed
+ </summary>
+</member><member name="M:PCBaOS.WorkSpace.CloseAllFormsExcept(System.Object[])">
+	<summary>
+ Close all application forms except specified ones
+ </summary>
+</member><member name="M:PCBaOS.WorkSpace.WindowFunction">
+	<summary>
+ Handle Windows button function based on login state
+ </summary>
+</member><member name="M:PCBaOS.WorkSpace.WindowFunctionShortcut">
+	<summary>
+ Handle Windows function shortcut with confirmation dialog
+ </summary>
+</member><member name="M:PCBaOS.WorkSpace.Timer1_Tick_1(System.Object,System.EventArgs)">
+	<summary>
+ Update time, date, and system information
+ </summary>
+</member><member name="M:PCBaOS.WorkSpace.UpdateTimeAndDate">
+	<summary>
+ Update time and date display based on user format settings
+ </summary>
+</member><member name="M:PCBaOS.WorkSpace.UpdateVolumeDisplay">
+	<summary>
+ Update volume display and icon based on current volume
+ </summary>
+</member><member name="M:PCBaOS.WorkSpace.UpdateWindowsButton">
+	<summary>
+ Update Windows button icon and tooltip based on login state
+ </summary>
+</member><member name="M:PCBaOS.WorkSpace.UpdateAudioPlayerVisibility">
+	<summary>
+ Update audio player visibility
+ </summary>
+</member>
+</members>
+</doc>
