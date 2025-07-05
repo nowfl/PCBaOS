@@ -23,6 +23,14 @@ PCBaOS
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.almostfullbattery">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.almostfullchargingbattery">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:PCBaOS.My.Resources.Resources.appstore">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -179,6 +187,10 @@ PCBaOS
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.deadbattery">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:PCBaOS.My.Resources.Resources.desktop">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -275,6 +287,14 @@ PCBaOS
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.fullbattery">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.fullchargingbattery">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:PCBaOS.My.Resources.Resources.geographic_game_header">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -286,6 +306,14 @@ PCBaOS
 </member><member name="P:PCBaOS.My.Resources.Resources.grab">
 	<summary>
   Looks up a localized resource of type System.Byte[].
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.halfbattery">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.halfchargingbattery">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member><member name="P:PCBaOS.My.Resources.Resources.height">
 	<summary>
@@ -487,6 +515,14 @@ PCBaOS
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.quarterbattery">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.quarterchargingbattery">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:PCBaOS.My.Resources.Resources.quickaccess">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -655,6 +691,14 @@ PCBaOS
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.timecopy">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PCBaOS.My.Resources.Resources.timesettings">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:PCBaOS.My.Resources.Resources.underline">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -798,10 +842,6 @@ PCBaOS
 </member><member name="M:PCBaOS.WorkSpace.WindowFunctionShortcut">
 	<summary>
  Handle Windows function shortcut with confirmation dialog
- </summary>
-</member><member name="M:PCBaOS.WorkSpace.Timer1_Tick_1(System.Object,System.EventArgs)">
-	<summary>
- Update time, date, and system information
  </summary>
 </member><member name="M:PCBaOS.WorkSpace.UpdateTimeAndDate">
 	<summary>

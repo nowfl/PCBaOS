@@ -897,7 +897,8 @@ Public Class ApplicationFolder
 
     Private Sub PictureBox24_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox24.Click, Label6.Click, Panel24.Click
         Try
-            FileManager.Show()
+            Dim newFileManager As New FileManager()
+            newFileManager.Show()
             Me.Close()
         Catch ex As Exception
             MessageBox.Show("Error in opening File Manager: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

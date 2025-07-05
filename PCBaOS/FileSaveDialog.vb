@@ -11,6 +11,7 @@
     Private lblFolder As Label
     Private lblFileName As Label
     Private cmbFormat As ComboBox
+    Private folderContextMenu As ContextMenuStrip
 
     Private KernelPath As String
 
@@ -39,8 +40,14 @@
         tree.Width = 380
         tree.Height = 220
         tree.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        AddHandler tree.NodeMouseClick, AddressOf Tree_NodeMouseClick
         Me.Controls.Add(tree)
         LoadFolders(KernelPath, tree)
+
+        ' Setup context menu for folders
+        folderContextMenu = New ContextMenuStrip()
+        Dim menuOpenInFileManager As New ToolStripMenuItem("Open in File Manager", Nothing, AddressOf MenuOpenInFileManager_Click)
+        folderContextMenu.Items.Add(menuOpenInFileManager)
 
         lblFileName = New Label()
         lblFileName.Text = "File name:"
@@ -144,5 +151,32 @@
         End If
         Me.DialogResult = DialogResult.OK
         Me.Close()
+    End Sub
+
+    Private Sub Tree_NodeMouseClick(ByVal sender As Object, ByVal e As TreeNodeMouseClickEventArgs)
+        If e.Button = MouseButtons.Right Then
+            tree.SelectedNode = e.Node
+            folderContextMenu.Show(tree, e.Location)
+        End If
+    End Sub
+
+    Private Sub MenuOpenInFileManager_Click(ByVal sender As Object, ByVal e As EventArgs)
+        If tree.SelectedNode Is Nothing Then Return
+        Dim folderPath As String = CStr(tree.SelectedNode.Tag)
+        Try
+            Dim fileManagerForm As New FileManager()
+            fileManagerForm.StartupParameters("OpenFolder") = folderPath
+            fileManagerForm.Show()
+        Catch ex As Exception
+            MessageBox.Show("Could not open folder in File Manager: " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub FileSaveDialog_Load_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Try
+            Me.Icon = System.Drawing.Icon.FromHandle(My.Resources.save.GetHicon())
+        Catch ex As Exception
+            ' If icon cannot be set, ignore or log as needed
+        End Try
     End Sub
 End Class

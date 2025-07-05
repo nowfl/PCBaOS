@@ -11,6 +11,7 @@
     Private lblFolder As Label
     Private lblFiles As Label
     Private cmbFilter As ComboBox
+    Private folderContextMenu As ContextMenuStrip
 
     Private KernelPath As String
 
@@ -40,8 +41,14 @@
         tree.Height = 260
         tree.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Bottom
         AddHandler tree.AfterSelect, AddressOf Tree_AfterSelect
+        AddHandler tree.NodeMouseClick, AddressOf Tree_NodeMouseClick
         Me.Controls.Add(tree)
         LoadFolders(KernelPath, tree)
+
+        ' Setup context menu for folders
+        folderContextMenu = New ContextMenuStrip()
+        Dim menuOpenInFileManager As New ToolStripMenuItem("Open in File Manager", Nothing, AddressOf MenuOpenInFileManager_Click)
+        folderContextMenu.Items.Add(menuOpenInFileManager)
 
         lblFiles = New Label()
         lblFiles.Text = "Files:"
@@ -87,7 +94,7 @@
         If AvailableFilters IsNot Nothing AndAlso AvailableFilters.Count > 0 Then
             filtersToUse = AvailableFilters.ToArray()
         Else
-            filtersToUse = New String() {"All Files", "Text Files (*.txt;*.xml)", "Rich Text Format (*.rtf)", "Images (*.png;*.jpg;*.jpeg)"}
+            filtersToUse = New String() {"All Files", "Text Files (*.txt;*.xml)", "Rich Text Format (*.rtf)", "Images (*.png;*.jpg;*.jpeg)", "Audio Files (*.mp3;*.wav;*.wma)"}
         End If
         cmbFilter.Items.AddRange(filtersToUse)
         AddHandler cmbFilter.SelectedIndexChanged, AddressOf cmbFilter_SelectedIndexChanged
@@ -120,6 +127,25 @@
         UpdateFileList()
     End Sub
 
+    Private Sub Tree_NodeMouseClick(ByVal sender As Object, ByVal e As TreeNodeMouseClickEventArgs)
+        If e.Button = MouseButtons.Right Then
+            tree.SelectedNode = e.Node
+            folderContextMenu.Show(tree, e.Location)
+        End If
+    End Sub
+
+    Private Sub MenuOpenInFileManager_Click(ByVal sender As Object, ByVal e As EventArgs)
+        If tree.SelectedNode Is Nothing Then Return
+        Dim folderPath As String = CStr(tree.SelectedNode.Tag)
+        Try
+            Dim fileManagerForm As New FileManager()
+            fileManagerForm.StartupParameters("OpenFolder") = folderPath
+            fileManagerForm.Show()
+        Catch ex As Exception
+            MessageBox.Show("Could not open folder in File Manager: " & ex.Message)
+        End Try
+    End Sub
+
     Private Sub cmbFilter_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs)
         SelectedFilter = CStr(cmbFilter.SelectedItem)
         UpdateFileList()
@@ -137,6 +163,8 @@
                 patterns = New String() {"*.rtf"}
             Case "Images (*.png;*.jpg;*.jpeg)"
                 patterns = New String() {"*.png", "*.jpg", "*.jpeg"}
+            Case "Audio Files (*.mp3;*.wav;*.wma)"
+                patterns = New String() {"*.mp3", "*.wav", "*.wma"}
             Case Else
                 patterns = New String() {"*.*"}
         End Select
@@ -166,7 +194,7 @@
         If AvailableFilters IsNot Nothing AndAlso AvailableFilters.Count > 0 Then
             filtersToUse = AvailableFilters.ToArray()
         Else
-            filtersToUse = New String() {"All Files", "Text Files (*.txt;*.xml)", "Rich Text Format (*.rtf)", "Images (*.png;*.jpg;*.jpeg)"}
+            filtersToUse = New String() {"All Files", "Text Files (*.txt;*.xml)", "Rich Text Format (*.rtf)", "Images (*.png;*.jpg;*.jpeg)", "Audio Files (*.mp3;*.wav;*.wma)"}
         End If
         cmbFilter.Items.AddRange(filtersToUse)
         If Not String.IsNullOrEmpty(DefaultFilter) Then
@@ -178,5 +206,13 @@
             Next
         End If
         If cmbFilter.Items.Count > 0 AndAlso cmbFilter.SelectedIndex = -1 Then cmbFilter.SelectedIndex = 0
+    End Sub
+
+    Private Sub FileLoadDialog_Load_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Try
+            Me.Icon = System.Drawing.Icon.FromHandle(My.Resources.open.GetHicon())
+        Catch ex As Exception
+            ' If icon cannot be set, ignore or log as needed
+        End Try
     End Sub
 End Class

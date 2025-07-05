@@ -25,12 +25,29 @@
     Private menuCopy As ToolStripMenuItem
     Private menuPaste As ToolStripMenuItem
 
+    ' Universal startup parameters for future extensibility
+    Public Property StartupParameters As New Dictionary(Of String, Object)()
+
     Private Sub FileManager_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ' Set up Kernel path in application directory
         KernelPath = IO.Path.Combine(Application.StartupPath, KernelFolderName)
         EnsureKernelStructure()
         InitUI()
         LoadTree()
+        
+        ' Handle startup parameters
+        If StartupParameters IsNot Nothing AndAlso StartupParameters.ContainsKey("OpenFolder") Then
+            Dim folderPath As String = CStr(StartupParameters("OpenFolder"))
+            If IO.Directory.Exists(folderPath) Then
+                ' Find and select the folder node
+                Dim foundNode As TreeNode = FindNodeByPath(tree.Nodes(0), folderPath)
+                If foundNode IsNot Nothing Then
+                    tree.SelectedNode = foundNode
+                    foundNode.EnsureVisible()
+                    UpdatePathLabel()
+                End If
+            End If
+        End If
     End Sub
 
     ' Ensure Kernel and subfolders exist
@@ -209,6 +226,12 @@
                 Catch ex As Exception
                     MessageBox.Show("Could not open file in Textpad: " & ex.Message)
                 End Try
+            ElseIf ext = ".mp3" OrElse ext = ".wav" OrElse ext = ".wma" Then
+                Try
+                    OpenWithAudioPlayer(path)
+                Catch ex As Exception
+                    MessageBox.Show("Could not open audio file in AudioPlayer: " & ex.Message)
+                End Try
             End If
         End If
     End Sub
@@ -378,6 +401,8 @@
                     menuOpenWith.DropDownItems.Add(New ToolStripMenuItem("Paint99", Nothing, Sub() OpenWithPaint99(path)))
                 ElseIf ext = ".txt" OrElse ext = ".rtf" OrElse ext = ".xml" Then
                     menuOpenWith.DropDownItems.Add(New ToolStripMenuItem("Textpad", Nothing, Sub() OpenWithTextpad(path)))
+                ElseIf ext = ".mp3" OrElse ext = ".wav" OrElse ext = ".wma" Then
+                    menuOpenWith.DropDownItems.Add(New ToolStripMenuItem("AudioPlayer", Nothing, Sub() OpenWithAudioPlayer(path)))
                 End If
                 ' Add more file type handlers here as needed
                 If menuOpenWith.DropDownItems.Count = 0 Then
@@ -440,6 +465,16 @@
             textpadForm.Show()
         Catch ex As Exception
             MessageBox.Show("Could not open file in Textpad: " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub OpenWithAudioPlayer(ByVal filePath As String)
+        Try
+            Dim audioForm As New AudioPlayer()
+            audioForm.StartupParameters("FilePath") = filePath
+            audioForm.Show()
+        Catch ex As Exception
+            MessageBox.Show("Could not open file in AudioPlayer: " & ex.Message)
         End Try
     End Sub
 

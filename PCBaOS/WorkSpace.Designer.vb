@@ -35,6 +35,7 @@ Partial Class WorkSpace
         Me.RestartToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ShutdownToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WindowsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BatteryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InternetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotificToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TimeData = New System.Windows.Forms.ToolStripMenuItem()
@@ -59,10 +60,22 @@ Partial Class WorkSpace
         Me.TaskbarPanel = New System.Windows.Forms.FlowLayoutPanel()
         Me.TaskbarContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ShowTaskbarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TimeContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.AddReminderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CopyTimeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.TimeRegionSettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DateContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.AddReminderItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CopyDate = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.TimeAndRegionSettingsDate = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.VolumeContextMenu.SuspendLayout()
         Me.TaskbarContextMenu.SuspendLayout()
+        Me.TimeContextMenu.SuspendLayout()
+        Me.DateContextMenu.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -80,7 +93,7 @@ Partial Class WorkSpace
         'MenuStrip1
         '
         Me.MenuStrip1.AutoSize = False
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PCBaOSToolStripMenuItem, Me.WindowsToolStripMenuItem, Me.InternetToolStripMenuItem, Me.NotificToolStripMenuItem, Me.TimeData, Me.DateData, Me.Vol100ToolStripMenuItem, Me.AudioPlayerToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PCBaOSToolStripMenuItem, Me.WindowsToolStripMenuItem, Me.InternetToolStripMenuItem, Me.BatteryToolStripMenuItem, Me.NotificToolStripMenuItem, Me.TimeData, Me.DateData, Me.Vol100ToolStripMenuItem, Me.AudioPlayerToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
@@ -167,6 +180,15 @@ Partial Class WorkSpace
         Me.WindowsToolStripMenuItem.Name = "WindowsToolStripMenuItem"
         Me.WindowsToolStripMenuItem.Size = New System.Drawing.Size(28, 35)
         Me.WindowsToolStripMenuItem.ToolTipText = "Close all opened apps" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Right click to open Task Manager"
+        '
+        'BatteryToolStripMenuItem
+        '
+        Me.BatteryToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.BatteryToolStripMenuItem.AutoToolTip = True
+        Me.BatteryToolStripMenuItem.Image = Global.PCBaOS.My.Resources.Resources.fullbattery
+        Me.BatteryToolStripMenuItem.Name = "BatteryToolStripMenuItem"
+        Me.BatteryToolStripMenuItem.Size = New System.Drawing.Size(28, 35)
+        Me.BatteryToolStripMenuItem.ToolTipText = "Battery Life"
         '
         'InternetToolStripMenuItem
         '
@@ -352,6 +374,70 @@ Partial Class WorkSpace
         Me.ShowTaskbarToolStripMenuItem.Size = New System.Drawing.Size(184, 24)
         Me.ShowTaskbarToolStripMenuItem.Text = "Taskbar Settings"
         '
+        'TimeContextMenu
+        '
+        Me.TimeContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddReminderToolStripMenuItem, Me.CopyTimeToolStripMenuItem, Me.ToolStripSeparator4, Me.TimeRegionSettingsToolStripMenuItem})
+        Me.TimeContextMenu.Name = "TimeContextMenu"
+        Me.TimeContextMenu.Size = New System.Drawing.Size(249, 82)
+        '
+        'AddReminderToolStripMenuItem
+        '
+        Me.AddReminderToolStripMenuItem.Image = Global.PCBaOS.My.Resources.Resources.plus
+        Me.AddReminderToolStripMenuItem.Name = "AddReminderToolStripMenuItem"
+        Me.AddReminderToolStripMenuItem.Size = New System.Drawing.Size(248, 24)
+        Me.AddReminderToolStripMenuItem.Text = "Add reminder"
+        '
+        'CopyTimeToolStripMenuItem
+        '
+        Me.CopyTimeToolStripMenuItem.Image = Global.PCBaOS.My.Resources.Resources.timecopy
+        Me.CopyTimeToolStripMenuItem.Name = "CopyTimeToolStripMenuItem"
+        Me.CopyTimeToolStripMenuItem.Size = New System.Drawing.Size(248, 24)
+        Me.CopyTimeToolStripMenuItem.Text = "Copy Time"
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(245, 6)
+        '
+        'TimeRegionSettingsToolStripMenuItem
+        '
+        Me.TimeRegionSettingsToolStripMenuItem.Image = Global.PCBaOS.My.Resources.Resources.timesettings
+        Me.TimeRegionSettingsToolStripMenuItem.Name = "TimeRegionSettingsToolStripMenuItem"
+        Me.TimeRegionSettingsToolStripMenuItem.Size = New System.Drawing.Size(248, 24)
+        Me.TimeRegionSettingsToolStripMenuItem.Text = "Time and Region Settings"
+        '
+        'DateContextMenu
+        '
+        Me.DateContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddReminderItem, Me.CopyDate, Me.ToolStripSeparator5, Me.TimeAndRegionSettingsDate})
+        Me.DateContextMenu.Name = "DateContextMenu"
+        Me.DateContextMenu.Size = New System.Drawing.Size(249, 82)
+        '
+        'AddReminderItem
+        '
+        Me.AddReminderItem.Image = Global.PCBaOS.My.Resources.Resources.plus
+        Me.AddReminderItem.Name = "AddReminderItem"
+        Me.AddReminderItem.Size = New System.Drawing.Size(248, 24)
+        Me.AddReminderItem.Text = "Add reminder"
+        '
+        'CopyDate
+        '
+        Me.CopyDate.Image = Global.PCBaOS.My.Resources.Resources.timecopy
+        Me.CopyDate.Name = "CopyDate"
+        Me.CopyDate.Size = New System.Drawing.Size(248, 24)
+        Me.CopyDate.Text = "Copy Date"
+        '
+        'ToolStripSeparator5
+        '
+        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(245, 6)
+        '
+        'TimeAndRegionSettingsDate
+        '
+        Me.TimeAndRegionSettingsDate.Image = Global.PCBaOS.My.Resources.Resources.timesettings
+        Me.TimeAndRegionSettingsDate.Name = "TimeAndRegionSettingsDate"
+        Me.TimeAndRegionSettingsDate.Size = New System.Drawing.Size(248, 24)
+        Me.TimeAndRegionSettingsDate.Text = "Time and Region Settings"
+        '
         'WorkSpace
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -380,6 +466,8 @@ Partial Class WorkSpace
         Me.StatusStrip1.PerformLayout()
         Me.VolumeContextMenu.ResumeLayout(False)
         Me.TaskbarContextMenu.ResumeLayout(False)
+        Me.TimeContextMenu.ResumeLayout(False)
+        Me.DateContextMenu.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -419,5 +507,16 @@ Partial Class WorkSpace
     Friend WithEvents TaskbarPanel As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents TaskbarContextMenu As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents ShowTaskbarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents TimeContextMenu As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents CopyTimeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents TimeRegionSettingsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DateContextMenu As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents CopyDate As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator5 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents TimeAndRegionSettingsDate As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AddReminderToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AddReminderItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents BatteryToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

@@ -1222,7 +1222,7 @@ Partial Class ApplicationFolder
         '
         Me.Label25.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(1068, 55)
+        Me.Label25.Location = New System.Drawing.Point(1068, 54)
         Me.Label25.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(57, 17)

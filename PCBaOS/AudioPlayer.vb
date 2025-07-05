@@ -10,6 +10,9 @@ Public Class AudioPlayer
     Private shuffle As Boolean = False
     Private rand As New Random()
 
+    ' Allow external startup parameters (e.g., for FileManager integration)
+    Public Property StartupParameters As New Dictionary(Of String, Object)()
+
     ' Property to get the current media name
     Private ReadOnly Property MediaName As String
         Get
@@ -41,6 +44,24 @@ Public Class AudioPlayer
         Label2.Text = "00:00:00"
         TrackBar1.Value = 0
         Me.Text = "Audio Player"
+
+        ' Handle StartupParameters for file opening
+        If StartupParameters IsNot Nothing AndAlso StartupParameters.ContainsKey("FilePath") Then
+            Dim filePath As String = CStr(StartupParameters("FilePath"))
+            If IO.File.Exists(filePath) Then
+                Dim fileDirectory As String = IO.Path.GetDirectoryName(filePath)
+                Dim mp3Files As String() = IO.Directory.GetFiles(fileDirectory, "*.mp3")
+                Dim wavFiles As String() = IO.Directory.GetFiles(fileDirectory, "*.wav")
+                Dim wmaFiles As String() = IO.Directory.GetFiles(fileDirectory, "*.wma")
+                musicFiles = mp3Files.Concat(wavFiles).Concat(wmaFiles).OrderBy(Function(f) f).ToArray()
+                currentFileIndex = Array.IndexOf(musicFiles, filePath)
+                If currentFileIndex < 0 Then currentFileIndex = 0
+                If musicFiles.Length > 0 Then
+                    mediaPlayer.URL = musicFiles(currentFileIndex)
+                    mediaPlayer.Ctlcontrols.play()
+                End If
+            End If
+        End If
     End Sub
 
     ' Play
@@ -65,25 +86,21 @@ Public Class AudioPlayer
         End If
     End Sub
 
-    ' Open files
+    ' Open files (now using FileLoadDialog, restricted to Kernel)
     Private Sub OpenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OpenToolStripMenuItem.Click
-        Dim openFileDialog As New OpenFileDialog()
-        openFileDialog.Filter = "Audio Files|*.mp3;*.wav;*.wma"
-        openFileDialog.Multiselect = True
-        If openFileDialog.ShowDialog() = DialogResult.OK Then
-            ' If multiple files selected, use them; else, load all in folder
-            If openFileDialog.FileNames.Length > 1 Then
-                musicFiles = openFileDialog.FileNames
-            Else
-                Dim fileDirectory As String = System.IO.Path.GetDirectoryName(openFileDialog.FileName)
-                Dim mp3Files As String() = System.IO.Directory.GetFiles(fileDirectory, "*.mp3")
-                Dim wavFiles As String() = System.IO.Directory.GetFiles(fileDirectory, "*.wav")
-                Dim wmaFiles As String() = System.IO.Directory.GetFiles(fileDirectory, "*.wma")
-                musicFiles = mp3Files.Concat(wavFiles).Concat(wmaFiles).OrderBy(Function(f) f).ToArray()
-                ' Set currentFileIndex to the selected file
-                currentFileIndex = Array.IndexOf(musicFiles, openFileDialog.FileName)
-                If currentFileIndex < 0 Then currentFileIndex = 0
-            End If
+        Dim kernelPath As String = IO.Path.Combine(Application.StartupPath, "Kernel")
+        Dim dlg As New FileLoadDialog(kernelPath)
+        dlg.AvailableFilters = New List(Of String)({"All Files", "Audio Files (*.mp3;*.wav;*.wma)"})
+        dlg.DefaultFilter = "Audio Files (*.mp3;*.wav;*.wma)"
+        If dlg.ShowDialog() = DialogResult.OK AndAlso IO.File.Exists(dlg.SelectedFile) Then
+            Dim fileDirectory As String = System.IO.Path.GetDirectoryName(dlg.SelectedFile)
+            Dim mp3Files As String() = System.IO.Directory.GetFiles(fileDirectory, "*.mp3")
+            Dim wavFiles As String() = System.IO.Directory.GetFiles(fileDirectory, "*.wav")
+            Dim wmaFiles As String() = System.IO.Directory.GetFiles(fileDirectory, "*.wma")
+            musicFiles = mp3Files.Concat(wavFiles).Concat(wmaFiles).OrderBy(Function(f) f).ToArray()
+            ' Set currentFileIndex to the selected file
+            currentFileIndex = Array.IndexOf(musicFiles, dlg.SelectedFile)
+            If currentFileIndex < 0 Then currentFileIndex = 0
             If musicFiles.Length > 0 Then
                 mediaPlayer.URL = musicFiles(currentFileIndex)
                 mediaPlayer.Ctlcontrols.play()

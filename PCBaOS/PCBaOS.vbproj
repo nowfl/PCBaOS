@@ -743,6 +743,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PROGM001.ICO" />
+    <None Include="Resources\fullbattery.png" />
+    <None Include="Resources\halfchargingbattery.png" />
+    <None Include="Resources\quarterchargingbattery.png" />
+    <None Include="Resources\almostfullchargingbattery.png" />
+    <None Include="Resources\fullchargingbattery.png" />
+    <None Include="Resources\deadbattery.png" />
+    <None Include="Resources\almostfullbattery.png" />
+    <None Include="Resources\halfbattery.png" />
+    <None Include="Resources\quarterbattery.png" />
+    <Content Include="Resources\timecopy.png" />
+    <None Include="Resources\timesettings.png" />
     <None Include="Resources\filemanager.png" />
     <None Include="Resources\key.ico" />
     <None Include="Resources\logoff.ico" />

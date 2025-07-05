@@ -49,10 +49,16 @@ Public Class WorkSpace
     Private taskbarOrder As New List(Of String)()
     Private draggingButton As Button = Nothing
     Private dragStartPoint As Point
+    Private formInstanceCounter As New Dictionary(Of String, Integer)()
+    Private formInstanceMap As New Dictionary(Of String, Form)()
 
     ' Add at the class level
     Private isDragging As Boolean = False
     Private Const DRAG_THRESHOLD As Integer = 5
+
+    ' Add at class level
+    Private lastBatteryPercent As Integer = -1
+    Private lastBatteryCharging As Boolean = False
 
 #Region "Volume Control Methods"
     ' Centralized logging method
@@ -379,19 +385,84 @@ Public Class WorkSpace
 #End Region
 
 #Region "UI Update Methods"
-    ''' <summary>
-    ''' Update time, date, and system information
-    ''' </summary>
+    ' Add at class level
     Private Sub Timer1_Tick_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         UpdateTimeAndDate()
         UpdateVolumeDisplay()
         UpdateWindowsButton()
         UpdateAudioPlayerVisibility()
+        UpdateBatteryStatus()
 
         If isLoaded Then
             Label1.Text = "Welcome, " & My.Settings.UserName
             Me.BackColor = My.Settings.WorkColor
         End If
+    End Sub
+
+    ' Battery status update
+    Private Sub UpdateBatteryStatus()
+        Try
+            Dim powerStatus = SystemInformation.PowerStatus
+            ' Check if battery is present
+            If powerStatus.BatteryChargeStatus = BatteryChargeStatus.NoSystemBattery Then
+                BatteryToolStripMenuItem.Visible = False
+                lastBatteryPercent = -1
+                lastBatteryCharging = False
+                Return
+            Else
+                BatteryToolStripMenuItem.Visible = True
+            End If
+            Dim percent = CInt(powerStatus.BatteryLifePercent * 100)
+            Dim charging = (powerStatus.PowerLineStatus = PowerLineStatus.Online)
+            Dim iconName As String = ""
+            ' Choose icon
+            If percent >= 95 Then
+                iconName = If(charging, "fullchargingbattery", "fullbattery")
+            ElseIf percent >= 75 Then
+                iconName = If(charging, "almostfullchargingbattery", "almostfullbattery")
+            ElseIf percent >= 50 Then
+                iconName = If(charging, "halfchargingbattery", "halfbattery")
+            ElseIf percent >= 25 Then
+                iconName = If(charging, "quarterchargingbattery", "quarterbattery")
+            ElseIf percent > 5 Then
+                iconName = If(charging, "quarterchargingbattery", "quarterbattery")
+            Else
+                iconName = "deadbattery"
+            End If
+            ' Set icon
+            Select Case iconName
+                Case "fullbattery"
+                    BatteryToolStripMenuItem.Image = My.Resources.fullbattery
+                Case "fullchargingbattery"
+                    BatteryToolStripMenuItem.Image = My.Resources.fullchargingbattery
+                Case "almostfullbattery"
+                    BatteryToolStripMenuItem.Image = My.Resources.almostfullbattery
+                Case "almostfullchargingbattery"
+                    BatteryToolStripMenuItem.Image = My.Resources.almostfullchargingbattery
+                Case "halfbattery"
+                    BatteryToolStripMenuItem.Image = My.Resources.halfbattery
+                Case "halfchargingbattery"
+                    BatteryToolStripMenuItem.Image = My.Resources.halfchargingbattery
+                Case "quarterbattery"
+                    BatteryToolStripMenuItem.Image = My.Resources.quarterbattery
+                Case "quarterchargingbattery"
+                    BatteryToolStripMenuItem.Image = My.Resources.quarterchargingbattery
+                Case "deadbattery"
+                    BatteryToolStripMenuItem.Image = My.Resources.deadbattery
+            End Select
+            ' Set tooltip
+            Dim tipText As String = String.Format("Battery: {0}%", percent)
+            If charging Then tipText &= " (Charging)"
+            If powerStatus.BatteryLifeRemaining > 0 AndAlso powerStatus.BatteryLifeRemaining < 100000 Then
+                Dim mins = powerStatus.BatteryLifeRemaining \ 60
+                tipText &= String.Format("{0}Estimated time left: {1} min", Environment.NewLine, mins)
+            End If
+            BatteryToolStripMenuItem.ToolTipText = tipText
+            lastBatteryPercent = percent
+            lastBatteryCharging = charging
+        Catch ex As Exception
+            BatteryToolStripMenuItem.ToolTipText = "Battery status unavailable"
+        End Try
     End Sub
 
     ''' <summary>
@@ -754,44 +825,110 @@ Public Class WorkSpace
         End If
     End Sub
 
-    ' UpdateTaskbar: Only add/remove buttons for open/close, not every tick
+    ' UpdateTaskbar: Handle multiple instances of the same app
     Private Sub UpdateTaskbar()
+        ' Clear instance tracking
+        formInstanceMap.Clear()
+
+        ' First pass: Map existing forms to their current instance IDs
+        Dim existingFormToInstanceMap As New Dictionary(Of Form, String)()
+        For Each instanceId In taskbarOrder
+            ' Try to find the form that was previously mapped to this instance ID
+            For Each frm As Form In Application.OpenForms
+                If frm IsNot Me AndAlso frm.Name <> "Password" AndAlso frm.Name <> "QuickAccess" AndAlso frm.Name <> "ApplicationFolder" AndAlso frm.Name <> "WorkName" AndAlso frm.Name <> "BootLoad" AndAlso frm.Name <> "WorkSpace" AndAlso frm.Name <> "Notifications" Then
+                    Dim baseName As String = frm.Name
+                    If instanceId.StartsWith(baseName & "_") AndAlso Not existingFormToInstanceMap.ContainsKey(frm) Then
+                        ' Additional check: make sure this form isn't already mapped to a different instance ID
+                        Dim alreadyMapped As Boolean = False
+                        For Each kvp In existingFormToInstanceMap
+                            If kvp.Value = instanceId Then
+                                alreadyMapped = True
+                                Exit For
+                            End If
+                        Next
+
+                        If Not alreadyMapped Then
+                            existingFormToInstanceMap(frm) = instanceId
+                            formInstanceMap(instanceId) = frm
+                        End If
+                        Exit For
+                    End If
+                End If
+            Next
+        Next
+
         ' Remove closed forms from order
-        Dim openFormNames = Application.OpenForms.Cast(Of Form)().Where(Function(f) f IsNot Me AndAlso f.Name <> "Password" AndAlso f.Name <> "QuickAccess" AndAlso f.Name <> "ApplicationFolder" AndAlso f.Name <> "WorkName" AndAlso f.Name <> "BootLoad" AndAlso f.Name <> "WorkSpace").Select(Function(f) f.Name).ToList()
-        taskbarOrder = taskbarOrder.Where(Function(n) openFormNames.Contains(n)).ToList()
-        ' Add new forms to order
+        Dim formsToRemove As New List(Of String)()
+        For Each instanceId In taskbarOrder
+            If Not formInstanceMap.ContainsKey(instanceId) Then
+                formsToRemove.Add(instanceId)
+            End If
+        Next
+        For Each instanceId In formsToRemove
+            taskbarOrder.Remove(instanceId)
+        Next
+
+        ' Process all open forms that don't have existing instance IDs
         For Each frm As Form In Application.OpenForms
             If frm IsNot Me AndAlso frm.Name <> "Password" AndAlso frm.Name <> "QuickAccess" AndAlso frm.Name <> "ApplicationFolder" AndAlso frm.Name <> "WorkName" AndAlso frm.Name <> "BootLoad" AndAlso frm.Name <> "WorkSpace" AndAlso frm.Name <> "Notifications" Then
-                If Not taskbarOrder.Contains(frm.Name) Then
-                    taskbarOrder.Add(frm.Name)
+
+                ' Skip if this form already has an instance ID
+                If existingFormToInstanceMap.ContainsKey(frm) Then Continue For
+
+                ' Generate unique instance ID for new forms
+                Dim instanceId As String = GenerateInstanceId(frm)
+
+                ' Track this instance
+                formInstanceMap(instanceId) = frm
+
+                ' Add to order if new
+                If Not taskbarOrder.Contains(instanceId) Then
+                    taskbarOrder.Add(instanceId)
                 End If
             End If
         Next
+
         ' Rebuild buttons in order
         TaskbarPanel.Controls.Clear()
-        For Each formName In taskbarOrder
-            Dim frm = Application.OpenForms.Cast(Of Form)().FirstOrDefault(Function(f) f.Name = formName)
+        For Each instanceId In taskbarOrder
+            Dim frm = formInstanceMap(instanceId)
             If frm Is Nothing Then Continue For
+
             ' Remember last non-minimized state
             If frm.WindowState <> FormWindowState.Minimized Then
                 lastWindowStates(frm) = frm.WindowState
             ElseIf Not lastWindowStates.ContainsKey(frm) Then
                 lastWindowStates(frm) = FormWindowState.Normal
             End If
+
             RemoveHandler frm.Activated, AddressOf AppForm_Activated
             AddHandler frm.Activated, AddressOf AppForm_Activated
+
             Dim btn As New Button()
             btn.Width = 48
             btn.Height = 48
-            btn.Tag = frm
-            btn.Name = "TaskbarBtn_" & frm.Name
+            btn.Tag = frm  ' Ensure Tag is set to the correct form
+            btn.Name = "TaskbarBtn_" & instanceId
+
+            ' Set icon
             If frm.Icon IsNot Nothing Then
                 btn.Image = frm.Icon.ToBitmap()
             End If
-            btn.Text = ""
+
+            ' Set text to show instance number if multiple instances
+            Dim instanceNumber As Integer = GetInstanceNumber(instanceId)
+            If instanceNumber > 1 Then
+                btn.Text = instanceNumber.ToString()
+                btn.Font = New Font(btn.Font.FontFamily, 8, FontStyle.Bold)
+            Else
+                btn.Text = ""
+            End If
+
             btn.TextImageRelation = TextImageRelation.ImageAboveText
+
+            ' Create context menu
             Dim menu As New ContextMenuStrip()
-            Dim titleItem As New ToolStripMenuItem(frm.Text)
+            Dim titleItem As New ToolStripMenuItem(GetFormTitle(frm, instanceNumber))
             titleItem.Enabled = False
             menu.Items.Add(titleItem)
             menu.Items.Add(New ToolStripSeparator())
@@ -806,18 +943,83 @@ Public Class WorkSpace
                                                End Sub)
             menu.Items.Add("Close", Nothing, Sub() CType(btn.Tag, Form).Close())
             btn.ContextMenuStrip = menu
+
+            ' Set tooltip
             Dim tip As New ToolTip()
-            tip.SetToolTip(btn, frm.Text)
+            tip.SetToolTip(btn, GetFormTitle(frm, instanceNumber))
+
             ' Drag and drop handlers
             AddHandler btn.MouseDown, AddressOf TaskbarBtn_MouseDown
             AddHandler btn.MouseMove, AddressOf TaskbarBtn_MouseMove
             AddHandler btn.MouseUp, AddressOf TaskbarBtn_MouseUp
             TaskbarPanel.Controls.Add(btn)
         Next
+
         ' Save order to settings
         My.Settings.TaskbarOrder = String.Join("|", taskbarOrder)
         My.Settings.Save()
     End Sub
+
+    ' Generate unique instance ID for a form
+    Private Function GenerateInstanceId(ByVal frm As Form) As String
+        Dim baseName As String = frm.Name
+        Dim usedNumbers As New List(Of Integer)()
+
+        ' Check what instance numbers are already in use in taskbarOrder
+        For Each instanceId In taskbarOrder
+            If instanceId.StartsWith(baseName & "_") Then
+                Dim parts() As String = instanceId.Split("_"c)
+                If parts.Length > 1 Then
+                    Dim numberStr As String = parts(parts.Length - 1)
+                    Dim number As Integer
+                    If Integer.TryParse(numberStr, number) Then
+                        usedNumbers.Add(number)
+                    End If
+                End If
+            End If
+        Next
+
+        ' Find the first available number
+        Dim instanceNumber As Integer = 1
+        While usedNumbers.Contains(instanceNumber)
+            instanceNumber += 1
+        End While
+
+        ' Generate unique ID
+        Return baseName & "_" & instanceNumber.ToString()
+    End Function
+
+    ' Get the current instance ID for a form (if it exists in taskbar)
+    Private Function GetFormInstanceId(ByVal frm As Form) As String
+        For Each kvp In formInstanceMap
+            If kvp.Value Is frm Then
+                Return kvp.Key
+            End If
+        Next
+        Return frm.Name
+    End Function
+
+    ' Get instance number from instance ID
+    Private Function GetInstanceNumber(ByVal instanceId As String) As Integer
+        Dim parts() As String = instanceId.Split("_"c)
+        If parts.Length > 1 Then
+            Dim numberStr As String = parts(parts.Length - 1)
+            Dim number As Integer
+            If Integer.TryParse(numberStr, number) Then
+                Return number
+            End If
+        End If
+        Return 1
+    End Function
+
+    ' Get form title with instance number if applicable
+    Private Function GetFormTitle(ByVal frm As Form, ByVal instanceNumber As Integer) As String
+        Dim baseTitle As String = frm.Text
+        If instanceNumber > 1 Then
+            Return baseTitle & " (" & instanceNumber.ToString() & ")"
+        End If
+        Return baseTitle
+    End Function
 
     ' Drag and drop logic
     Private Sub TaskbarBtn_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs)
@@ -845,8 +1047,13 @@ Public Class WorkSpace
                     If otherBtn Is btn Then Continue For
                     If otherBtn.Bounds.Contains(mousePos) Then
                         TaskbarPanel.Controls.SetChildIndex(btn, i)
-                        taskbarOrder.Remove(btn.Tag.Name)
-                        taskbarOrder.Insert(i, btn.Tag.Name)
+                        ' Get instance ID from button name
+                        Dim instanceId As String = btn.Name.Replace("TaskbarBtn_", "")
+                        taskbarOrder.Remove(instanceId)
+                        taskbarOrder.Insert(i, instanceId)
+
+                        ' Update button tags to match the new order
+                        UpdateButtonTags()
                         Exit For
                     End If
                 Next
@@ -860,6 +1067,8 @@ Public Class WorkSpace
         If isDragging Then
             draggingButton = Nothing
             isDragging = False
+            ' Update button tags to ensure they're correct
+            UpdateButtonTags()
             My.Settings.TaskbarOrder = String.Join("|", taskbarOrder)
             My.Settings.Save()
         ElseIf draggingButton Is btn AndAlso e.Button = MouseButtons.Left Then
@@ -887,11 +1096,65 @@ ResetDrag:
         End If
     End Sub
 
+    ' Helper method to update button tags to match the current taskbarOrder
+    Private Sub UpdateButtonTags()
+        ' Rebuild formInstanceMap based on current taskbarOrder
+        formInstanceMap.Clear()
+
+        For Each instanceId In taskbarOrder
+            ' Find the form that should be mapped to this instance ID
+            For Each frm As Form In Application.OpenForms
+                If frm IsNot Me AndAlso frm.Name <> "Password" AndAlso frm.Name <> "QuickAccess" AndAlso frm.Name <> "ApplicationFolder" AndAlso frm.Name <> "WorkName" AndAlso frm.Name <> "BootLoad" AndAlso frm.Name <> "WorkSpace" AndAlso frm.Name <> "Notifications" Then
+                    Dim baseName As String = frm.Name
+                    If instanceId.StartsWith(baseName & "_") AndAlso Not formInstanceMap.ContainsValue(frm) Then
+                        formInstanceMap(instanceId) = frm
+                        Exit For
+                    End If
+                End If
+            Next
+        Next
+
+        ' Update button tags to match the new mapping
+        For i As Integer = 0 To TaskbarPanel.Controls.Count - 1
+            Dim btn As Button = TryCast(TaskbarPanel.Controls(i), Button)
+            If btn IsNot Nothing Then
+                Dim instanceId As String = btn.Name.Replace("TaskbarBtn_", "")
+                If formInstanceMap.ContainsKey(instanceId) Then
+                    btn.Tag = formInstanceMap(instanceId)
+                End If
+            End If
+        Next
+    End Sub
+
     ' On startup, restore order from settings
     Private Sub RestoreTaskbarOrder()
         If Not String.IsNullOrEmpty(My.Settings.TaskbarOrder) Then
             taskbarOrder = My.Settings.TaskbarOrder.Split("|"c).ToList()
+            ' Clean up any invalid instance IDs
+            CleanupInvalidInstanceIds()
         End If
+    End Sub
+
+    ' Clean up invalid instance IDs from saved order
+    Private Sub CleanupInvalidInstanceIds()
+        Dim validIds As New List(Of String)()
+        For Each instanceId In taskbarOrder
+            ' Check if this instance ID format is valid
+            If instanceId.Contains("_") Then
+                Dim parts() As String = instanceId.Split("_"c)
+                If parts.Length > 1 Then
+                    Dim numberStr As String = parts(parts.Length - 1)
+                    Dim number As Integer
+                    If Integer.TryParse(numberStr, number) AndAlso number > 0 Then
+                        validIds.Add(instanceId)
+                    End If
+                End If
+            Else
+                ' Legacy format - keep for backward compatibility
+                validIds.Add(instanceId)
+            End If
+        Next
+        taskbarOrder = validIds
     End Sub
 
     ' Handler to track last active app form
@@ -906,6 +1169,116 @@ ResetDrag:
         Dim s As New settings()
         s.SetStartupTab("Theme")
         s.Show()
+    End Sub
+
+    ' Add Reminder for today (open Calendar and trigger reminder dialog)
+    Private Sub AddReminderToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddReminderToolStripMenuItem.Click, AddReminderItem.Click
+        Try
+            ' Open Calendar if not already open
+            Dim calForm As Calendar = Nothing
+            For Each frm As Form In Application.OpenForms
+                If TypeOf frm Is Calendar Then
+                    calForm = CType(frm, Calendar)
+                    Exit For
+                End If
+            Next
+            Dim calendarWasAlreadyOpen As Boolean = (calForm IsNot Nothing)
+            If calForm Is Nothing Then
+                calForm = New Calendar()
+                calForm.Show()
+            Else
+                calForm.BringToFront()
+            End If
+            ' Use reflection to call DayCell_DoubleClick for today
+            Dim today As Date = Date.Today
+            Dim calPanel = calForm.Controls.Find("CalendarPanel", True).FirstOrDefault()
+            Dim reminderAdded As Boolean = False
+            If calPanel IsNot Nothing Then
+                For Each ctrl In calPanel.Controls
+                    If TypeOf ctrl Is Label Then
+                        Dim lbl As Label = CType(ctrl, Label)
+                        If lbl.Text IsNot Nothing AndAlso lbl.Text.Trim().Length > 0 Then
+                            Dim dayNum As Integer
+                            Dim txt = New String(lbl.Text.TakeWhile(Function(c) Char.IsDigit(c)).ToArray())
+                            If Integer.TryParse(txt, dayNum) AndAlso dayNum = today.Day Then
+                                Dim mi = calForm.GetType().GetMethod("DayCell_DoubleClick", Reflection.BindingFlags.NonPublic Or Reflection.BindingFlags.Instance)
+                                If mi IsNot Nothing Then
+                                    mi.Invoke(calForm, New Object() {lbl, EventArgs.Empty})
+                                    reminderAdded = True
+                                End If
+                                Exit For
+                            End If
+                        End If
+                    End If
+                Next
+            End If
+            ' If we opened the calendar just for this, close it after adding reminder
+            If Not calendarWasAlreadyOpen AndAlso reminderAdded Then
+                calForm.Close()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Failed to add reminder: " & ex.Message)
+        End Try
+    End Sub
+
+    ' Copy current time to clipboard
+    Private Sub CopyTimeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CopyTimeToolStripMenuItem.Click
+        Try
+            Dim nowTime As String = DateTime.Now.ToString("HH:mm:ss")
+            Clipboard.SetText(nowTime)
+        Catch ex As Exception
+            MessageBox.Show("Failed to copy time: " & ex.Message)
+        End Try
+    End Sub
+
+    ' Open Time & Region settings tab in settings form
+    Private Sub TimeRegionSettingsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TimeRegionSettingsToolStripMenuItem.Click, TimeAndRegionSettingsDate.Click
+        Try
+            Dim s As New settings()
+            s.SetStartupTab("time and region")
+            s.Show()
+        Catch ex As Exception
+            MessageBox.Show("Failed to open Time & Region settings: " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub TimeData_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles TimeData.MouseDown
+        If e.Button = MouseButtons.Right Then
+            TimeContextMenu.Show(MousePosition)
+        End If
+    End Sub
+
+    Private Sub DateData_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles DateData.MouseDown
+        If e.Button = MouseButtons.Right Then
+            DateContextMenu.Show(MousePosition)
+        End If
+    End Sub
+
+    Private Sub CopyDate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CopyDate.Click
+        Try
+            Dim dateStr As String
+            Select Case My.Settings.DateFormat
+                Case "1"
+                    dateStr = DateTime.Now.ToString("dd.MM.yyyy")
+                Case "2"
+                    dateStr = DateTime.Now.ToString("MM.dd.yyyy")
+                Case "3"
+                    dateStr = DateTime.Now.ToString("yyyy.MM.dd")
+                Case Else
+                    dateStr = DateTime.Now.ToShortDateString()
+            End Select
+            Clipboard.SetText(dateStr)
+        Catch ex As Exception
+            MessageBox.Show("Failed to copy date: " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub ToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
+
+    Private Sub BatteryToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BatteryToolStripMenuItem.Click
+
     End Sub
 End Class
 Module StatusBarTooltipHelper
